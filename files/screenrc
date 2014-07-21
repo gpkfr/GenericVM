@@ -1,0 +1,9 @@
+verbose off
+multiuser on
+bell "Bell in window %^G"
+vbell on
+startup_message off
+defscrollback 10000
+caption always "%{wk}%h %=%c"
+hardstatus alwayslastline "%{=b}%{G}Screen(s): %{w}%-Lw%n%f* %t%{-}%{w}%+Lw%=%{G}Connected to %H"
+activity "Activity in %t(%n)"

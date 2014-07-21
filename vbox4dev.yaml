@@ -1,0 +1,20 @@
+---
+memory: "3072"
+cpus: "1"
+
+authorized_keys:
+    - ./files/vagrant.pub
+    - ~/.ssh/id_rsa.pub
+
+private_keys:
+    - ~/id_rsa
+
+shared_folders:
+    - map: /Users/guillaume/Documents/git/GT/Wr1
+      to: /home/vagrant/www
+
+forwarded_port:
+#     - guest: "80"
+#       host: "8080"
+
+manifest: "default.pp"
