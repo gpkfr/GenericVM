@@ -4,3 +4,18 @@
 [submodule "modules/apt"]
 	path = modules/apt
 	url = git://github.com/puppetlabs/puppetlabs-apt.git
+[submodule "modules/mysql"]
+	path = modules/mysql
+	url = git://github.com/puppetlabs/puppetlabs-mysql.git
+[submodule "modules/wget"]
+	path = modules/wget
+	url = git://github.com/maestrodev/puppet-wget.git
+[submodule "modules/nodejs"]
+	path = modules/nodejs
+	url = git://github.com/willdurand/puppet-nodejs.git
+[submodule "modules/vcsrepo"]
+	path = modules/vcsrepo
+	url = git://github.com/puppetlabs/puppetlabs-vcsrepo.git
+[submodule "modules/webreader"]
+	path = modules/webreader
+	url = git://github.com/gpkfr/gpkfr-webreader.git
