@@ -37,7 +37,7 @@ class Vbox
 			  config.vm.network :forwarded_port, guest: port["guest"], host: port["host"]
 		  end
     end
-    
+
     # Configure The Public Key For SSH Access
     settings["authorized_keys"].each do |authkey|
       config.vm.provision "shell" do |s|
