@@ -10,11 +10,11 @@ private_keys:
     - ~/id_rsa
 
 shared_folders:
-    - map: /Users/guillaume/Documents/git/GT/Wr1
+    - map: /Users/guillaume/Documents/git/IbX/l4
       to: /home/vagrant/www
 
 forwarded_port:
-#     - guest: "80"
-#       host: "8080"
+     - guest: "80"
+       host: "8080"
 
-manifest: "default.pp"
+manifest: "laravel.pp"
