@@ -13,3 +13,6 @@
 [submodule "modules/php"]
 	path = modules/php
 	url = git@github.com:jippi/puppet-php.git
+[submodule "modules/laravel"]
+	path = modules/laravel
+	url = git@github.com:/gpkfr/gpkfr-laravel
