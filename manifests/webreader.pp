@@ -9,12 +9,16 @@ class {
 # wr
 
 webreader::vhost { 'test.local':
-  script_name => 'wr',
-  node_port   => '3000',
-  wruser      => 'vagrant',
-  wrgrp       => 'vagrant',
-  nodeapp_dir => '/home/vagrant/www/wr/',
-  server_js   => 'dist/server.js',
-  root_dir    => '/home/vagrant/www',
-  vagrant     => true
+  script_name    => 'wr',
+  node_port      => '3000',
+  wruser         => 'vagrant',
+  wrgrp          => 'vagrant',
+  nodeapp_dir    => '/home/vagrant/www/',
+  server_js      => 'dist/server.js',
+  root_dir       => '/home/vagrant/www',
+  vagrant        => true,
+  bucket_s3      => 'gt-media-default.s3-eu-west-1.amazonaws.com',
+  awsaccessKeyId => 'AKIAIKWIOCTNVWEGP5LA',
   }
+
+
