@@ -16,8 +16,7 @@ class Vbox
 
     # Configure A Few VmWare-Fusion Settings
     config.vm.provider "vmware_fusion" do |v, override|
-      override.vm.box = "wheezy64_fr"
-      override.vm.box_url = "http://gt-adminsys.s3.amazonaws.com/box/vmware/wheezy64_fr.box"
+      override.vm.box = "gpkfr/wheezy64_fr_v7"
       v.vmx["memsize"] = settings["memory"] ||= "2048"
       v.vmx["numvcpus"] = settings["cpus"] ||= "1"
     end
