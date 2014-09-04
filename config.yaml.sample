@@ -10,7 +10,7 @@ private_keys:
     - ~/id_rsa
 
 shared_folders:
-    - map: /Users/guillaume/Documents/git/IbX/l4
+    - map: ~/Documents/git/IbX/l4
       to: /home/vagrant/www
 
 forwarded_port:

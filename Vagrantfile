@@ -9,5 +9,5 @@ require 'yaml'
 require path + '/scripts/vbox4dev.rb'
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  Vbox.configure(config, YAML::load(File.read(path + '/vbox4dev.yaml')))
+  Vbox.configure(config, YAML::load(File.read(path + '/config.yaml')))
 end
