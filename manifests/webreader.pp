@@ -18,5 +18,3 @@ webreader::vhost { 'test.local':
   root_dir    => '/home/vagrant/www',
   vagrant     => true
   }
-
-

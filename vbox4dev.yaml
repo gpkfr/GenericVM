@@ -17,4 +17,4 @@ forwarded_port:
      - guest: "80"
        host: "8080"
 
-manifest: "laravel.pp"
+manifest: "default.pp"
