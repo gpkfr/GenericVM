@@ -6,8 +6,7 @@ class Vbox
   def Vbox.configure(config,settings)
     config.ssh.shell = "bash -s"
     #Configure the Box
-    config.vm.box = "ibx-wheezy64_vb"
-    config.vm.box_url = "http://gt-adminsys.s3.amazonaws.com/box/ibx-wheezy64_vb.box"
+    config.vm.box = "gpkfr/wheezy64_fr_v7"
 
 #    server_ip = settings["ip"] ||= "192.168.10.10"
 
