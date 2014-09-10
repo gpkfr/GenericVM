@@ -28,3 +28,6 @@
 [submodule "modules/webreader"]
 	path = modules/webreader
 	url = git://github.com/gpkfr/gpkfr-webreader.git
+[submodule "modules/postgresql"]
+	path = modules/postgresql
+	url = https://github.com/puppetlabs/puppetlabs-postgresql.git

@@ -5,8 +5,9 @@ file { "/home/vagrant/www":
 }
 
 class {'laravel':
-  use_xdebug     => true,
-  remote_host_ip => "10.0.0.69",
+  use_xdebug      => true,
+  remote_host_ip  => "10.0.0.69",
+  database_server => "mysql",
 }
 
 laravel::vhost { 'test.local':
