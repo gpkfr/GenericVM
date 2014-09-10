@@ -1,8 +1,9 @@
 ---
 # Adapt this value to your needs, but do not allocate more you have ;)
-memory: "3072"
+memory: "1024"
 cpus: "1"
-ip: "192.168.212.220"
+ip: "192.168.212.220
+
 #SSH Stuff keep vagrant public keys
 authorized_keys:
     - ./files/vagrant.pub
@@ -10,7 +11,7 @@ authorized_keys:
 
 # if you need it
 private_keys:
-    - ~/id_rsa
+    - ~/.ssh/id_rsa
 
 #map Folders to the vm, adapt to your needs (puppet manifest...)
 shared_folders:

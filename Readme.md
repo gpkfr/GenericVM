@@ -13,3 +13,21 @@ This box provide a Linux basic installation fully custumizable with puppet
 Happy Dev ;)
 
 Feel Free to contribute
+
+## Puppet Manifest
+
+### Default
+Default manifest is only a POC and/or a starting point to create
+wonderfull install ;)
+
+### Laravel
+Laravel manifest provides you development environment without pain. It
+use a puppet module (laravel) to install the Nginx web server, php5-fpm, Mysql-server, Redis-server
+and more (in fact all what you need).
+
+Software installed :
+
+* nginx
+* php5-fpm
+* Mysql-Server (optionnal)
+* redis-server
