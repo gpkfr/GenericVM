@@ -31,3 +31,6 @@
 [submodule "modules/postgresql"]
 	path = modules/postgresql
 	url = https://github.com/puppetlabs/puppetlabs-postgresql.git
+[submodule "modules/concat"]
+	path = modules/concat
+	url = https://github.com/puppetlabs/puppetlabs-concat.git
