@@ -6,7 +6,7 @@ class Vbox
   def Vbox.configure(config,settings)
     config.ssh.shell = "bash -s"
     #Configure the Box
-    config.vm.box = "gpkfr/wheezy64_fr_v7"
+    config.vm.box = settings["vagrant_box"] ||= "gpkfr/wheezy64_fr_v7"
 
 #    server_ip = settings["ip"] ||= "192.168.10.10"
 
@@ -16,7 +16,7 @@ class Vbox
 
     # Configure A Few VmWare-Fusion Settings
     config.vm.provider "vmware_fusion" do |v, override|
-      v.vmx["memsize"] = settings["memory"] ||= "2048"
+      v.vmx["memsize"] = settings["memory"] ||= "1024"
       v.vmx["numvcpus"] = settings["cpus"] ||= "1"
       #v.vmx["ethernet0.connectiontype"] = settings["connectiontype"] ||= "nat"
       #v.vmx["ethernet0.connectiontype"] = settings["connectiontype"] ||= "bridged"
