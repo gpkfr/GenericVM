@@ -1,8 +1,10 @@
 ---
+# change vagrant box (default value used when commented)
+# vagrant_box = "gpkfr/wheezy64_fr_v7"
 # Adapt this value to your needs, but do not allocate more you have ;)
 memory: "1024"
 cpus: "1"
-ip: "192.168.212.220
+ip: "192.168.212.220"
 
 #SSH Stuff keep vagrant public keys
 authorized_keys:
@@ -22,7 +24,6 @@ shared_folders:
 forwarded_port:
      - guest: "80"
        host: "8080"
-
 
 #Puppet manifest to use
 manifest: "default.pp"
