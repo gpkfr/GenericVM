@@ -4,7 +4,10 @@ file { "/home/vagrant/www":
       group  => 'vagrant',
 }
 
-include laravel
+class {'laravel':
+  use_xdebug     => true,
+  remote_host_ip => "10.0.0.69",
+}
 
 laravel::vhost { 'test.local':
   root_dir => "/home/vagrant/www/public",
