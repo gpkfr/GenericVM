@@ -3,7 +3,7 @@ This box provide a Linux basic installation fully custumizable with puppet
 
 ## installation
 
-* Clone this repo [ git clone git@github.com:gpkfr/GenericVM.git GVM && cd GVM ]
+* Clone this repo [   ]
 * Execute [ git submodule init && git submodule update ] [required]
 * install additional puppet module as git submodule in modules directory [Optionnal]
 * create puppet manifest in manifest Directory [Optionnal]
@@ -27,7 +27,57 @@ and more (in fact all what you need).
 
 Software installed :
 
+* Gnu/Debian (stable Version)
 * nginx
-* php5-fpm
-* Mysql-Server (optionnal)
+* php5-fpm or hhvm
+* Mysql-Server, postgresql, sqlite3 or none (optionnal)
 * redis-server
+* Nodejs(compiled from stable source)
+* Bower, Grunt, Gulp
+
+### Webreader
+Webreader manifest provides you development environment for a private nodejs project and is a good start for all nodejs development.
+
+***
+
+#Starting a new project
+
+## What do you need ?
+
+* (vagrant)[https://www.vagrantup.com]
+* (virtualbox >= 4.3.14)[https://www.virtualbox.org] [option]
+* (vmware fusion >= 7.0)[http://store.vmware.com/store?SiteID=vmwde&Action=DisplayProductDetailsPage&productID=304745700]
+
+## Where to start ?
+
+### Introduction
+
+the vagrant box is empty as default and must be configured with puppet manifest. GenericVm Provide the "eco-system" and is very flexible. All your project source file (php, javascript, html) are stored on the host(the computer you are using now) and shared with the virtual  environment (the guest).
+
+In fact, you can destroy VM without lost your code( except for db data ) ;
+
+1. Prepare GenericVm
+	1.1 **git clone git@github.com:gpkfr/GenericVM.git GVM && cd GVM**
+	1.2 **git submodule init && git submodule update
+
+2. Edit file config.yaml
+	2.1 cp config.yaml.sample config.yaml
+	2.2 the file is self documented and in (yaml)[http://symfony.com/legacy/doc/reference/1_4/fr/02-YAML] format
+
+3. Create or edit a (puppet)[https://docs.puppetlabs.com] manifest
+	3.1 GenericVM provide some manifest as Poc. ./manifests/Laravel.pp is a good starting point and very easy to configure. don't be afraid ;)
+
+4. Start VM
+	4.1 vagrant up
+	4.2 connect to your site ; Ex : (localsite)[http://127.0.0.1:8080]
+
+### some Vagrant Command
+
+1. Start VM -> vagrant up
+2. Stop VM  -> vagrant halt
+3. Delete VM -> vagrant destroy
+4. connect to vm -> vagrant ssh
+5. get ssh config -> vagrant ssh-config
+6. get help ;) -> vagrant help
+
+
