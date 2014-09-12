@@ -14,6 +14,8 @@ class Vbox
     config.vm.network "private_network", ip: settings["ip"] ||= "192.168.212.230", auto_config: false
     #config.vm.network "private_network", type: "dhcp"
 
+    config.vm.hostname = "DevMachine"
+
     # Configure A Few VmWare-Fusion Settings
     config.vm.provider "vmware_fusion" do |v, override|
       v.vmx["memsize"] = settings["memory"] ||= "1024"
@@ -68,6 +70,7 @@ class Vbox
     config.vm.provision :puppet, :module_path => "modules" do |puppet|
       puppet.manifests_path = "manifests"
       puppet.manifest_file  = settings["manifest"] ||= "default.pp"
+      #puppet.options = "--verbose --debug"
     end
 
   end

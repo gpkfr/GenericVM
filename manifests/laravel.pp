@@ -6,12 +6,13 @@ file { "/home/vagrant/www":
 
 class {'laravel':
   use_xdebug         => false, # install and configure xdebug ; If used with vmware_fusion uncomment remote_host_ip and put your host ip.
-  use_hhvm           => false, # install hhvm
+  use_hhvm           => false, # install hhvm (experimental)
   #remote_host_ip    => "10.0.0.69", # Needed for xdebug when using Vmware; delete or comment if you use virtualbox.
   database_server    => "none", # Possible value : none, mysql, postgresql,sqlite.
   # When installed mysql and postgresql create an empty database "laravel" with user/pass == root/root
-  install_node       => true,
+  install_redis      => false,
   install_beanstalkd => false,
+  install_node       => false,
   npm_pkg            => ["gulp","bower","grunt","grunt-cli"],
 }
 
