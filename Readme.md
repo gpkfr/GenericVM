@@ -52,7 +52,7 @@ Webreader manifest provides you development environment for a private nodejs pro
 
 ### Introduction
 
-the vagrant box is empty as default and must be configured with puppet manifest. GenericVm Provide the "eco-system" and is very flexible. All your project source file (php, javascript, html) are stored on the host(the computer you are using now) and shared with the virtual  environment (the guest).
+the vagrant box is empty by default and must be configured with puppet manifest. GenericVm Provide the "eco-system" and is very flexible. All your project source file (php, javascript, html) are stored on the host(the computer you are using now) and shared with the virtual  environment (the guest).
 
 In fact, you can destroy VM without lost your code( except for db data ) ;
 
@@ -65,7 +65,7 @@ In fact, you can destroy VM without lost your code( except for db data ) ;
 	2.2 the file is self documented and in (yaml)[http://symfony.com/legacy/doc/reference/1_4/fr/02-YAML] format
 
 3. Create or edit a (puppet)[https://docs.puppetlabs.com] manifest
-	3.1 GenericVM provide some manifest as Poc. ./manifests/Laravel.pp is a good starting point and very easy to configure. don't be afraid ;)
+	3.1 GenericVM provide some manifest as Poc. ./manifests/Laravel.pp is a good starting point and very easy to configure and self documented. don't be afraid ;)
 
 4. Start VM
 	4.1 vagrant up
