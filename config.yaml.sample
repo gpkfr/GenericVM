@@ -19,6 +19,7 @@ private_keys:
 shared_folders:
     - map: ~/Documents/git/IbX/l4
       to: /home/vagrant/www
+#      type: "nfs"
 
 # Forward local port to the vm
 # Params :

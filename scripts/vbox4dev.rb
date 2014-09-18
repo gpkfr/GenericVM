@@ -59,8 +59,15 @@ class Vbox
     end
 
     # Register All Of The Configured Shared Folders
-    settings["shared_folders"].each do |folder|
-      config.vm.synced_folder folder["map"], folder["to"]
+    if settings["shared_folders"]
+      settings["shared_folders"].each do |folder|
+        if folder["type"]
+          config.vm.synced_folder folder["map"], folder["to"],id: folder["map"],
+            type: folder["type"], nfs_export: true
+        else
+          config.vm.synced_folder folder["map"], folder["to"],id: folder["map"]
+        end
+      end
     end
 
     #########################
