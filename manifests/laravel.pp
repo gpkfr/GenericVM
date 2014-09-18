@@ -6,8 +6,8 @@ exec { "apt update":
 
 file { "/home/vagrant/www":
       ensure => directory,
-      owner  => 'vagrant',
-      group  => 'vagrant',
+      #      owner  => 'vagrant',
+      #      group  => 'vagrant',
 }
 
 class {'laravel':

@@ -11,7 +11,13 @@ class Vbox
 #    server_ip = settings["ip"] ||= "192.168.10.10"
 
     #Configure A private Network
-    config.vm.network "private_network", ip: settings["ip"] ||= "192.168.212.230", auto_config: false
+    if "private" == settings["network_type"]
+      config.vm.network "private_network", ip: settings["ip"] ||= "192.168.212.230", auto_config: true
+    end
+
+    if "public" == settings["network_type"]
+      config.vm.network "public_network"
+    end
     #config.vm.network "private_network", type: "dhcp"
 
     config.vm.hostname = "DevMachine"

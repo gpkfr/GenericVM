@@ -5,6 +5,7 @@
 memory: "1024"
 cpus: "1"
 ip: "192.168.212.220"
+network_type: "private" #must be public when use NFS /!\
 
 #SSH Stuff keep vagrant public keys
 authorized_keys:
@@ -19,7 +20,7 @@ private_keys:
 shared_folders:
     - map: ~/Documents/git/IbX/l4
       to: /home/vagrant/www
-#      type: "nfs"
+#      type: "nfs"  # set network_type to "public" /!\
 
 # Forward local port to the vm
 # Params :
