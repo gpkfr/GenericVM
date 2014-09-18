@@ -37,7 +37,7 @@ class Vbox
     # Configure Port Forwarding
     if settings["forwarded_port"]
 		  settings["forwarded_port"].each do |port|
-			  config.vm.network :forwarded_port, guest: port["guest"], host: port["host"]
+			  config.vm.network :forwarded_port, guest: port["guest"], host: port["host"], protocol: port["protocol"] ||= "tcp"
 		  end
     end
 

@@ -21,9 +21,14 @@ shared_folders:
       to: /home/vagrant/www
 
 # Forward local port to the vm
+# Params :
+# guest => guest vm port
+# host => Host port
+# protocol => optional, either tcp or udpdefault to tcp 
 forwarded_port:
      - guest: "80"
        host: "8080"
+       protocol: "tcp"
 
 #Puppet manifest to use
 manifest: "default.pp"
