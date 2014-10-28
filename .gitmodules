@@ -9,13 +9,13 @@
 	url = git://github.com/puppetlabs/puppetlabs-mysql.git
 [submodule "modules/phpfpm"]
 	path = modules/phpfpm
-	url = git@github.com:Slashbunny/puppet-phpfpm.git
+	url = git://github.com/Slashbunny/puppet-phpfpm.git
 [submodule "modules/php"]
 	path = modules/php
-	url = git@github.com:jippi/puppet-php.git
+	url = git://github.com/jippi/puppet-php.git
 [submodule "modules/laravel"]
 	path = modules/laravel
-	url = git@github.com:/gpkfr/gpkfr-laravel
+	url = git://github.com/gpkfr/gpkfr-laravel
 [submodule "modules/wget"]
 	path = modules/wget
 	url = git://github.com/maestrodev/puppet-wget.git
@@ -30,7 +30,7 @@
 	url = git://github.com/gpkfr/gpkfr-webreader.git
 [submodule "modules/postgresql"]
 	path = modules/postgresql
-	url = https://github.com/puppetlabs/puppetlabs-postgresql.git
+	url = git://github.com/puppetlabs/puppetlabs-postgresql.git
 [submodule "modules/concat"]
 	path = modules/concat
-	url = https://github.com/puppetlabs/puppetlabs-concat.git
+	url = git://github.com/puppetlabs/puppetlabs-concat.git
