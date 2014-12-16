@@ -1,7 +1,20 @@
 # Vagrant Box with Debian 7
 This box provide a Linux basic installation fully custumizable with puppet
 
-## installation
+## Install via Composer
+
+* install composer
+* execute as normal user : composer global require 'gpkfr/myvm=~0.0'
+* link ~/.composer/vndor/bin/myvm on /usr/local/bin or configure your $PATH
+
+### Myvm Usage
+
+* $ myvm init project_name
+* edit project_name/config.yaml
+* cd project_name
+* exec vagrant up
+
+## Manual installation
 
 * Clone this repo [   ]
 * Execute [ git submodule init && git submodule update ] [required]
