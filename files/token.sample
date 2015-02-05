@@ -1,0 +1,26 @@
+#Determine la route à utilser en fonction du cookie token
+
+  location = /index.html {
+
+     set $is_token off;
+
+     if ( $http_cookie ~* "token" ) {
+       set $is_token on;
+     }
+
+     if ( $is_token = off ) {
+       return 302 http://$host/auth;
+     }
+
+     if ( $is_token = on ) {
+       return 302 http://$host/app;
+     }
+   }
+
+   location ~* /auth/ {
+      try_files $uri $uri/ @node;
+    }
+
+    location ~* /app/ {
+      try_files $uri $uri/ @node;
+   }
