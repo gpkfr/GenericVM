@@ -1,3 +1,8 @@
+Exec["apt update"] -> Package <| |>
+
+exec { "apt update":
+    command => "/usr/bin/apt-get update",
+}
 
 class {
   'webreader':
