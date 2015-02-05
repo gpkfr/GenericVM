@@ -9,11 +9,11 @@
      }
 
      if ( $is_token = off ) {
-       return 302 http://$host/auth;
+       return 302 http://$http_host/auth;
      }
 
      if ( $is_token = on ) {
-       return 302 http://$host/app;
+       return 302 http://$http_host/app;
      }
    }
 
