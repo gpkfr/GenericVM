@@ -11,6 +11,7 @@ class {
 webreader::vhost { 'test.local':
   script_name    => 'wr',
   node_port      => '3000',
+  nginx_port     => '8080',
   wruser         => 'vagrant',
   wrgrp          => 'vagrant',
   nodeapp_dir    => '/home/vagrant/www/',
