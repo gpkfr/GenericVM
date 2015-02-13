@@ -6,7 +6,8 @@ exec { "apt update":
 
 class {
   'webreader':
-    bypass_node    => false,
+   bypass_node  => false,
+   compile_node => true,
 }
 
 
