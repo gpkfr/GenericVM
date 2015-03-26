@@ -42,25 +42,29 @@ class Vbox
 
     # Configure Port Forwarding
     if settings["forwarded_port"]
-		  settings["forwarded_port"].each do |port|
-			  config.vm.network :forwarded_port, guest: port["guest"], host: port["host"], protocol: port["protocol"] ||= "tcp"
-		  end
+      settings["forwarded_port"].each do |port|
+        config.vm.network :forwarded_port, guest: port["guest"], host: port["host"], protocol: port["protocol"] ||= "tcp"
+       end
     end
 
     # Configure The Public Key For SSH Access
-    settings["authorized_keys"].each do |authkey|
-      config.vm.provision "shell" do |s|
-        s.inline = "echo $1 | tee -a /home/vagrant/.ssh/authorized_keys"
-        s.args = [File.read(File.expand_path(authkey))]
+    if settings["authorized_keys"]
+      settings["authorized_keys"].each do |authkey|
+        config.vm.provision "shell" do |s|
+          s.inline = "echo $1 | tee -a /home/vagrant/.ssh/authorized_keys"
+          s.args = [File.read(File.expand_path(authkey))]
+        end
       end
     end
 
     # Copy The SSH Private Keys To The Box
-    settings["private_keys"].each do |key|
-      config.vm.provision "shell" do |s|
-        s.privileged = false
-        s.inline = "echo \"$1\" > /home/vagrant/.ssh/$2 && chmod 600 /home/vagrant/.ssh/$2"
-        s.args = [File.read(File.expand_path(key)), key.split('/').last]
+    if settings["private_keys"]
+      settings["private_keys"].each do |key|
+        config.vm.provision "shell" do |s|
+          s.privileged = false
+          s.inline = "echo \"$1\" > /home/vagrant/.ssh/$2 && chmod 600 /home/vagrant/.ssh/$2"
+          s.args = [File.read(File.expand_path(key)), key.split('/').last]
+        end
       end
     end
 
