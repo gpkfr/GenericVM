@@ -34,3 +34,15 @@ forwarded_port:
 
 #Puppet manifest to use
 manifest: "default.pp"
+
+
+#Custom Puppet Fact
+#You can Add custom puppet Fact here and use it in your manifest
+#Ex for laravel pp
+facters:
+    dbserver: sqlite
+    redis: false
+    beanstalkd: false
+    hhvm: false
+    xdebug: false
+

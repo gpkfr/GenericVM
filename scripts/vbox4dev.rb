@@ -87,9 +87,15 @@ class Vbox
     config.vm.provision :puppet, :module_path => "modules" do |puppet|
       puppet.manifests_path = "manifests"
       puppet.manifest_file  = settings["manifest"] ||= "default.pp"
-      puppet.facter = {
-        "host_ip" => settings["host_ip"] || %x{netstat -rn | grep "127.0.0.1" |grep -v "^127"|cut  -f 1 -d" "}
-      }
+
+      #Facter
+      if settings["facters"] and settings["facters"].isa? Hash
+        puppet.facter = settings["facters"]
+      end
+
+      #puppet.facter = {
+      #  "host_ip" => settings["host_ip"] || %x{netstat -rn | grep "127.0.0.1" |grep -v "^127"|cut  -f 1 -d" "}
+      #}
       #puppet.options = "--verbose --debug"
     end
 
