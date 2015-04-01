@@ -24,6 +24,7 @@ class Vbox
 
     # Configure A Few VmWare-Fusion Settings
     config.vm.provider "vmware_fusion" do |v, override|
+      v.vmx["displayName"] = "DevMachine"
       v.vmx["memsize"] = settings["memory"] ||= "1024"
       v.vmx["numvcpus"] = settings["cpus"] ||= "1"
       #v.vmx["ethernet0.connectiontype"] = settings["connectiontype"] ||= "nat"
@@ -41,7 +42,7 @@ class Vbox
 
 
     # Configure Port Forwarding
-    if settings["forwarded_port"]
+    if settings.has_key? ("forwarded_port")
       settings["forwarded_port"].each do |port|
         config.vm.network :forwarded_port, guest: port["guest"], host: port["host"], protocol: port["protocol"] ||= "tcp"
        end
