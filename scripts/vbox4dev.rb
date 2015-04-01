@@ -91,7 +91,7 @@ class Vbox
 
       #Facter
       factercfg = {
-        "hostip" => settings["host_ip"] || %x{netstat -rn | grep "127.0.0.1" |grep -v "^127"|cut  -f 1 -d" "},
+        "hostip" => settings["host_ip"] || %x{ifconfig  | grep -E 'inet.[0-9]' | grep -v '127.0.0.1' | awk '{ print $2}'},
         "vagrant" => 4,
       }
 
@@ -100,7 +100,11 @@ class Vbox
       end
 
       puppet.facter = factercfg
-      #puppet.options = "--verbose --debug"
+
+      if settings["debug"] = true
+        puts puppet.facter
+        puppet.options = "--verbose --debug"
+      end
    end
 
   end
