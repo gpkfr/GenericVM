@@ -101,7 +101,7 @@ class Vbox
 
       puppet.facter = factercfg
 
-      if settings["debug"] = true
+      if settings.has_key? ("debug") and settings["debug"]
         puts puppet.facter
         puppet.options = "--verbose --debug"
       end
