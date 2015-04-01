@@ -90,7 +90,7 @@ class Vbox
       puppet.manifest_file  = settings["manifest"] ||= "default.pp"
 
       #Facter
-      if settings["facters"] and settings["facters"].isa? Hash
+      if settings["facters"] and settings["facters"].is_a? Hash
         puppet.facter = settings["facters"]
       end
 
