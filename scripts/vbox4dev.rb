@@ -90,15 +90,18 @@ class Vbox
       puppet.manifest_file  = settings["manifest"] ||= "default.pp"
 
       #Facter
+      factercfg = {
+        "hostip" => settings["host_ip"] || %x{netstat -rn | grep "127.0.0.1" |grep -v "^127"|cut  -f 1 -d" "},
+        "vagrant" => 4,
+      }
+
       if settings["facters"] and settings["facters"].is_a? Hash
-        puppet.facter = settings["facters"]
+        factercfg.merge!(settings["facters"])
       end
 
-      #puppet.facter = {
-      #  "host_ip" => settings["host_ip"] || %x{netstat -rn | grep "127.0.0.1" |grep -v "^127"|cut  -f 1 -d" "}
-      #}
+      puppet.facter = factercfg
       #puppet.options = "--verbose --debug"
-    end
+   end
 
   end
 end

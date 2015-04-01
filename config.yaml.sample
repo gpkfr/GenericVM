@@ -5,18 +5,18 @@
 memory: "1024"
 cpus: "1"
 ip: "192.168.212.220"
-network_type: "private" #must be public when use NFS /!\
+network_type: "private" #must be public when using NFS /!\
 
-#SSH Stuff keep vagrant public keys
+#SSH Stuff
+#Public Keys
 authorized_keys:
-    - ./files/vagrant.pub
     - ~/.ssh/id_rsa.pub
 
 # if you need it
 private_keys:
     - ~/.ssh/id_rsa
 
-#map Folders to the vm, adapt to your needs (puppet manifest...)
+#map Folders to the vm, adapt to your needs ( adapt your puppet manifest...)
 shared_folders:
     - map: ~/Documents/git/IbX/l4
       to: /home/vagrant/www
@@ -37,12 +37,13 @@ manifest: "default.pp"
 
 
 #Custom Puppet Fact
-#You can Add custom puppet Fact here and use it in your manifest
-#Ex for laravel pp
-facters:
-    dbserver: sqlite
-    redis: false
-    beanstalkd: false
-    hhvm: false
-    xdebug: false
+#You can Add custom puppet Fact here and use it in your manifest ;)
+#Ex for laravel manifest
+#facters:
+#    dbserver: sqlite
+#    redis: false
+#    beanstalkd: false
+#    hhvm: false
+#    xdebug: false
+#    node: false
 
