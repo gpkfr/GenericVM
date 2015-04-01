@@ -91,7 +91,7 @@ class Vbox
 
       #Facter
       factercfg = {
-        "hostip" => settings["host_ip"] || %x{ifconfig  | grep -E 'inet.[0-9]' | grep -v '127.0.0.1' | awk '{ print $2}'},
+        "hostip" => settings["host_ip"] || %x{ifconfig  | grep -E 'inet.[0-9]' | grep -v '127.0.0.1' | awk '{ printf "%s", $2 }'},
         "vagrant" => 4,
       }
 
