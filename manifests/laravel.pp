@@ -11,12 +11,11 @@ file { "/home/vagrant/www":
 }
 
 class {'laravel':
-  # install and configure xdebug ; If used with vmware_fusion uncomment remote_host_ip and put your host ip.
+  # install and configure xdebug ; If used with vmware_fusion uncomment remote_host_ip and put your host ip or use facter.
   use_xdebug         => $::xdebug ? { 'true' => true, 'false' => false, default => false},
   # install hhvm (experimental)
   use_hhvm           => $::hhvm ? { 'true' => true, 'false' => false, default => false},
-  #remote_host_ip    => "10.0.0.69", # Needed for xdebug when using Vmware; delete or comment if you use virtualbox.
-  #remote_host_ip    => $::host_ip, # Needed for xdebug when using Vmware; delete or comment if you use virtualbox.
+  remote_host_ip     => $::host_ip, # Needed for xdebug when using Vmware; delete or comment if you use virtualbox.
   # Possible value : none, mysql, postgresql,sqlite.
   # When installed mysql and postgresql create an empty database "laravel" with user/pass == root/root
   database_server    => $::dbserver ? { 'sqlite' => 'sqlite', 'mysql' => 'mysql', 'postgresql' => 'postgresql', default => 'none' },
