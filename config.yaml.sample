@@ -42,6 +42,13 @@ manifest: "default.pp"
 #Custom Puppet Fact
 #You can Add custom puppet Fact here and use it in your manifest ;)
 #Ex for laravel manifest
+#dbserver : install Database [none, sqlite, mysql,postgresql]
+#redis : install Redis [true,false]
+#beanstalkd : install beanstalkd [true,false]
+#hhvm : Install hhvm [true,false] (experimental /!\)
+#xdebug : Install Xdebug [true,false]
+#node: Install node [true,false]
+#phprelease: install php taste [5.5, 5.6, zts]
 #facters:
 #    dbserver: sqlite
 #    redis: false
@@ -49,4 +56,5 @@ manifest: "default.pp"
 #    hhvm: false
 #    xdebug: false
 #    node: false
+#    phprelease: 5.6
 

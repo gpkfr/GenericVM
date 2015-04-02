@@ -23,7 +23,7 @@ class {'laravel':
   install_beanstalkd => $::beanstalkd ? { 'true' => true, 'false' => false, default => false},
   install_node       => $::node ? { 'true' => true, 'false' => false, default => false},
   npm_pkg            => ["gulp","bower","grunt","grunt-cli"],
-  php_release        => $::phprelease ? { '5.4' => 'php54', '5.5' => 'php55', '5.6' => 'php56', default => 'php55' },
+  php_release        => $::phprelease ? { '5.5' => 'php55', '5.6' => 'php56', 'zts' => 'php56-zts', default => 'php55' },
 }
 
 
