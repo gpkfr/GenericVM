@@ -1,11 +1,12 @@
 # Vagrant Box with Debian 7
-This box provide a Linux basic installation fully custumizable with puppet
+This Vagrant Box provides a system Gnu / Debian allowing very rapid establishment of an environment for developer and system administrator. Unlike other systems such as Homestead, GenericVM is fully configurable via puppet and offers as an example a manifest for Laravel puppet that you can use without effort. you are not limited in the use of GenericVM and you are totally free to set your BOX as desired.
 
-## Install via Composer
+
+## Install via Composer (
 
 * install composer
 * execute as normal user : composer global require 'gpkfr/myvm=~0.0'
-* link ~/.composer/vndor/bin/myvm on /usr/local/bin or configure your $PATH
+* link ~/.composer/vendor/bin/myvm on /usr/local/bin or configure your $PATH
 
 ### Myvm Usage
 
@@ -45,7 +46,7 @@ Software installed :
 * php5-fpm or hhvm
 * Mysql-Server, postgresql, sqlite3 or none (optionnal)
 * redis-server
-* Nodejs(compiled from stable source)
+* Nodejs(stable version or specific version)
 * Bower, Grunt, Gulp
 
 ### Webreader
