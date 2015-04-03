@@ -6,21 +6,24 @@ exec { "apt update":
 
 file { "/home/vagrant/www":
       ensure => directory,
-      #      owner  => 'vagrant',
-      #      group  => 'vagrant',
+      owner  => 'vagrant',
+      group  => 'vagrant',
 }
 
 class {'laravel':
-  use_xdebug         => false, # install and configure xdebug ; If used with vmware_fusion uncomment remote_host_ip and put your host ip.
-  use_hhvm           => false, # install hhvm (experimental)
-  #remote_host_ip    => "10.0.0.69", # Needed for xdebug when using Vmware; delete or comment if you use virtualbox.
-  remote_host_ip    => $::host_ip, # Needed for xdebug when using Vmware; delete or comment if you use virtualbox.
-  database_server    => "mysql", # Possible value : none, mysql, postgresql,sqlite.
+  # install and configure xdebug ; If used with vmware_fusion uncomment remote_host_ip and put your host ip or use facter.
+  use_xdebug         => $::xdebug ? { 'true' => true, 'false' => false, default => false},
+  # install hhvm (experimental)
+  use_hhvm           => $::hhvm ? { 'true' => true, 'false' => false, default => false},
+  remote_host_ip     => $::host_ip, # Needed for xdebug when using Vmware; delete or comment if you use virtualbox.
+  # Possible value : none, mysql, postgresql,sqlite.
   # When installed mysql and postgresql create an empty database "laravel" with user/pass == root/root
-  install_redis      => true,
-  install_beanstalkd => false,
-  install_node       => false,
+  database_server    => $::dbserver ? { 'sqlite' => 'sqlite', 'mysql' => 'mysql', 'postgresql' => 'postgresql', default => 'none' },
+  install_redis      => $::redis ? { 'true' => true, 'false' => false, default => false},
+  install_beanstalkd => $::beanstalkd ? { 'true' => true, 'false' => false, default => false},
+  install_node       => $::node ? { 'true' => true, 'false' => false, default => false},
   npm_pkg            => ["gulp","bower","grunt","grunt-cli"],
+  php_release        => $::phprelease ? { '5.5' => 'php55', '5.6' => 'php56', 'zts' => 'php56-zts', default => 'php55' },
 }
 
 

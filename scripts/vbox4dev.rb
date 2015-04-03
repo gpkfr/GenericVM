@@ -24,6 +24,7 @@ class Vbox
 
     # Configure A Few VmWare-Fusion Settings
     config.vm.provider "vmware_fusion" do |v, override|
+      v.vmx["displayName"] = "DevMachine"
       v.vmx["memsize"] = settings["memory"] ||= "1024"
       v.vmx["numvcpus"] = settings["cpus"] ||= "1"
       #v.vmx["ethernet0.connectiontype"] = settings["connectiontype"] ||= "nat"
@@ -41,7 +42,7 @@ class Vbox
 
 
     # Configure Port Forwarding
-    if settings["forwarded_port"]
+    if settings.has_key? ("forwarded_port")
       settings["forwarded_port"].each do |port|
         config.vm.network :forwarded_port, guest: port["guest"], host: port["host"], protocol: port["protocol"] ||= "tcp"
        end
@@ -87,11 +88,24 @@ class Vbox
     config.vm.provision :puppet, :module_path => "modules" do |puppet|
       puppet.manifests_path = "manifests"
       puppet.manifest_file  = settings["manifest"] ||= "default.pp"
-      puppet.facter = {
-        "host_ip" => settings["host_ip"] || %x{netstat -rn | grep "127.0.0.1" |grep -v "^127"|cut  -f 1 -d" "}
+
+      #Facter
+      factercfg = {
+        "hostip" => settings["host_ip"] || %x{ifconfig  | grep -E 'inet.[0-9]' | grep -v '127.0.0.1' | awk '{ printf "%s", $2 }'},
+        "vagrant" => 4,
       }
-      #puppet.options = "--verbose --debug"
-    end
+
+      if settings["facters"] and settings["facters"].is_a? Hash
+        factercfg.merge!(settings["facters"])
+      end
+
+      puppet.facter = factercfg
+
+      if settings.has_key? ("debug") and settings["debug"]
+        puts puppet.facter
+        puppet.options = "--verbose --debug"
+      end
+   end
 
   end
 end
