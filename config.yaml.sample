@@ -31,7 +31,7 @@ shared_folders:
 # host => Host port
 # protocol => optional, either tcp or udpdefault to tcp 
 forwarded_port:
-     - guest: "80"
+     - guest: "8080"
        host: "8080"
        protocol: "tcp"
 

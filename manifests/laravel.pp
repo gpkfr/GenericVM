@@ -29,7 +29,8 @@ class {'laravel':
 
 # Configure your(s) vhost(s)
 laravel::vhost { 'test.local':
-  root_dir => "/home/vagrant/www/public",
-  require  => File["/home/vagrant/www"],
+  root_dir   => "/home/vagrant/www/public",
+  require    => File["/home/vagrant/www"],
+  nginx_port => '8080',
 }
 
