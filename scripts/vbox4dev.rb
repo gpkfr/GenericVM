@@ -53,7 +53,7 @@ class Vbox
     end
 
     # Configure The Public Key For SSH Access
-    if settings.include 'authorized_keys'
+    if settings.include? 'authorized_keys'
       settings["authorized_keys"].each do |authkey|
         config.vm.provision "shell" do |s|
           s.inline = "echo $1|grep -xq \"$1\" /home/vagrant/.ssh/authorized_keys||echo $1|tee -a /home/vagrant/.ssh/authorized_keys"
@@ -63,7 +63,7 @@ class Vbox
     end
 
     # Copy The SSH Private Keys To The Box
-    if settings.include 'private_keys'
+    if settings.include? 'private_keys'
       settings["private_keys"].each do |key|
         config.vm.provision "shell" do |s|
           s.privileged = false
@@ -74,7 +74,7 @@ class Vbox
     end
 
     # Register All Of The Configured Shared Folders
-    if settings.include 'shared_folders'
+    if settings.include? 'shared_folders'
       settings["shared_folders"].each do |folder|
         if folder["type"]
           config.vm.synced_folder folder["map"], folder["to"],id: folder["map"],
