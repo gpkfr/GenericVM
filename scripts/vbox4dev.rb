@@ -1,6 +1,13 @@
 # -*- mode: ruby -*-
 # # vi: set ft=ruby :
 #
+$auth_script = <<AUTH_SCRIPT
+echo $1|grep -xq -- \"$1\" /home/vagrant/.ssh/authorized_keys || ((echo $1 | tee -a /home/vagrant/.ssh/authorized_keys) && echo "Populated Authorized_keys with $2")
+AUTH_SCRIPT
+
+$private_key = <<PK_SCRIPT
+test -f /home/vagrant/.ssh/$2 && echo $1|grep -xq -- \"$1\" /home/vagrant/.ssh/$2 || ((echo \"$1\" > /home/vagrant/.ssh/$2 && chmod 600 /home/vagrant/.ssh/$2) && echo "added Private key $2")
+PK_SCRIPT
 
 class Vbox
   def Vbox.configure(config,settings)
@@ -51,23 +58,24 @@ class Vbox
         config.vm.network :forwarded_port, guest: port["guest"], host: port["host"], protocol: port["protocol"] ||= "tcp"
        end
     end
-
+    
     # Configure The Public Key For SSH Access
     if settings.include? 'authorized_keys'
       settings["authorized_keys"].each do |authkey|
         config.vm.provision "shell" do |s|
-          s.inline = "echo $1|grep -xq \"$1\" /home/vagrant/.ssh/authorized_keys||echo $1|tee -a /home/vagrant/.ssh/authorized_keys"
-          s.args = [File.read(File.expand_path(authkey))]
+          s.inline = $auth_script
+          s.args = [File.read(File.expand_path(authkey)), authkey]
         end
       end
     end
+
 
     # Copy The SSH Private Keys To The Box
     if settings.include? 'private_keys'
       settings["private_keys"].each do |key|
         config.vm.provision "shell" do |s|
           s.privileged = false
-          s.inline = "echo $1|grep -xq \"$1\" /home/vagrant/.ssh/$2||echo \"$1\" > /home/vagrant/.ssh/$2 && chmod 600 /home/vagrant/.ssh/$2"
+          s.inline = $private_key
           s.args = [File.read(File.expand_path(key)), key.split('/').last]
         end
       end
