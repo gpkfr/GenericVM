@@ -48,7 +48,7 @@ class Vbox
       vb.customize ["modifyvm", :id, "--cpus", settings["cpus"] ||= "1"]
       vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
       vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-      vb.customize ["modifyvm", :id, "--ostype", settings["ostype"] || "Debian-64"]
+      vb.customize ["modifyvm", :id, "--ostype", settings["ostype"] || "Debian_64"]
     end
 
 
