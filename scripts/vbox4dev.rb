@@ -13,7 +13,7 @@ class Vbox
   def Vbox.configure(config,settings)
     config.ssh.shell = "bash -s"
     #Configure the Box
-    config.vm.box = settings["vagrant_box"] ||= "gpkfr/wheezy64_fr_v7"
+    config.vm.box = settings["vagrant_box"] ||= "gpkfr/debian-wheezy-64"
 
 #    server_ip = settings["ip"] ||= "192.168.10.10"
 
