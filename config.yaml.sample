@@ -3,7 +3,7 @@
 #Default false
 #debug: true
 # change vagrant box (default value used when commented)
-# vagrant_box = "gpkfr/wheezy64_fr_v7"
+# vagrant_box = "gpkfr/debian-wheezy-64"
 # Adapt this value to your needs, but do not allocate more you have ;)
 memory: "1024"
 cpus: "1"
@@ -49,6 +49,9 @@ manifest: "default.pp"
 #xdebug : Install Xdebug [true,false]
 #node: Install node [true,false]
 #phprelease: install php taste [5.5, 5.6, zts]
+#
+#
+
 #facters:
 #    dbserver: sqlite
 #    redis: false

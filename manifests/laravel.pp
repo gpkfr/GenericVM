@@ -4,11 +4,13 @@ exec { "apt update":
     command => "/usr/bin/apt-get update",
 }
 
+/*
 file { "/home/vagrant/www":
       ensure => directory,
       owner  => 'vagrant',
       group  => 'vagrant',
 }
+*/
 
 class {'laravel':
   # install and configure xdebug ; If used with vmware_fusion uncomment remote_host_ip and put your host ip or use facter.
@@ -30,7 +32,7 @@ class {'laravel':
 # Configure your(s) vhost(s)
 laravel::vhost { 'test.local':
   root_dir   => "/home/vagrant/www/public",
-  require    => File["/home/vagrant/www"],
+  #require    => File["/home/vagrant/www"],
   nginx_port => '8080',
 }
 
