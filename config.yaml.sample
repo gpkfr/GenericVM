@@ -3,8 +3,11 @@
 #Default false
 #debug: true
 # change vagrant box (default value used when commented)
-# vagrant_box = "gpkfr/debian-wheezy-64"
+# vagrant_box: "gpkfr/debian-wheezy-64"
 # Adapt this value to your needs, but do not allocate more you have ;)
+
+#vagrant_box: "debian/jessie64"
+
 memory: "1024"
 cpus: "1"
 ip: "192.168.212.220"
