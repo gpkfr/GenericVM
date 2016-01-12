@@ -15,7 +15,7 @@ class Vbox
     #Configure the Box
     config.vm.box = settings["vagrant_box"] ||= "gpkfr/debian-wheezy-64"
 
-    config.vm.graceful_halt_timeout = 1
+    config.vm.graceful_halt_timeout = 10
 #    server_ip = settings["ip"] ||= "192.168.10.10"
 
     #Configure A private Network
