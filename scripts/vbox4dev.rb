@@ -13,7 +13,7 @@ class Vbox
   def Vbox.configure(config,settings)
     config.ssh.shell = "bash -s"
     #Configure the Box
-    config.vm.box = settings["vagrant_box"] ||= "gpkfr/debian-wheezy-64"
+    config.vm.box = settings["vagrant_box"] ||= "gpkfr/jessie64_82_fr"
 
     config.vm.graceful_halt_timeout = 10
 #    server_ip = settings["ip"] ||= "192.168.10.10"
@@ -35,7 +35,7 @@ class Vbox
         v.vmx["displayName"] = "DevMachine"
         v.vmx["memsize"] = settings["memory"] ||= "1024"
         v.vmx["numvcpus"] = settings["cpus"] ||= "1"
-        v.vmx["guestos"] = settings["ostype"] || "debian7-64"
+        v.vmx["guestos"] = settings["ostype"] || "debian8-64"
         #v.vmx["ethernet0.connectiontype"] = settings["connectiontype"] ||= "nat"
         #v.vmx["ethernet0.connectiontype"] = settings["connectiontype"] ||= "bridged"
         #v.vmx["ethernet0.linkStatePropagation.enable"] = "TRUE"
@@ -59,7 +59,7 @@ class Vbox
         config.vm.network :forwarded_port, guest: port["guest"], host: port["host"], protocol: port["protocol"] ||= "tcp"
        end
     end
-    
+
     # Configure The Public Key For SSH Access
     if settings.include? 'authorized_keys'
       settings["authorized_keys"].each do |authkey|

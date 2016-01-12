@@ -6,12 +6,12 @@
 # vagrant_box: "gpkfr/debian-wheezy-64"
 # Adapt this value to your needs, but do not allocate more you have ;)
 
-#vagrant_box: "debian/jessie64"
+#vagrant_box: "gpkfr/jessie64_82_fr"
 
 memory: "1024"
 cpus: "1"
 ip: "192.168.212.220"
-network_type: "private" #must be public when using NFS /!\
+network_type: "private"
 
 #SSH Stuff
 #Public Keys
@@ -23,9 +23,9 @@ private_keys:
     - ~/.ssh/id_rsa
 
 #map Folders to the vm, adapt to your needs ( adapt your puppet manifest...)
-shared_folders:
-    - map: ~/Documents/git/IbX/l4
-      to: /home/vagrant/www
+#shared_folders:
+#    - map: ~/Documents/git/IbX/l4
+#      to: /home/vagrant/www
 #      type: "nfs"  # set network_type to "public" /!\
 
 # Forward local port to the vm
@@ -33,10 +33,10 @@ shared_folders:
 # guest => guest vm port
 # host => Host port
 # protocol => optional, either tcp or udpdefault to tcp 
-forwarded_port:
-     - guest: "8080"
-       host: "8080"
-       protocol: "tcp"
+#forwarded_port:
+#     - guest: "8080"
+#       host: "8080"
+#       protocol: "tcp"
 
 #Puppet manifest to use
 manifest: "default.pp"
