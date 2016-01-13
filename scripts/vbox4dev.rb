@@ -13,7 +13,7 @@ class Vbox
   def Vbox.configure(config,settings)
     config.ssh.shell = "bash -s"
     #Configure the Box
-    config.vm.box = settings["vagrant_box"] ||= "gpkfr/jessie64_82_fr"
+    config.vm.box = settings["vagrant_box"] ||= "gpkfr/jessie"
 
     config.vm.graceful_halt_timeout = 10
 #    server_ip = settings["ip"] ||= "192.168.10.10"
