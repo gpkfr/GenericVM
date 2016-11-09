@@ -30,7 +30,7 @@ class Vbox
     config.vm.hostname = "DevMachine"
 
     # Configure A Few VmWare Settings
-    ["vmware_fusion", "vmware_workstation"].each do |vmware|
+    ["vmware_fusion", "vmware_desktop", "vmware_workstation"].each do |vmware|
       config.vm.provider vmware do |v, override|
         v.vmx["displayName"] = "DevMachine"
         v.vmx["memsize"] = settings["memory"] ||= "1024"
